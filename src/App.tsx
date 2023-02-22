@@ -4,12 +4,19 @@ import "./App.css";
 
 const App: React.FC = () => {
   const [status, setStatus] = useState<string | number>("text");
+  const [input, setInput] = useState("");
+
+  const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInput(e.target.value);
+  };
 
   return (
     <div className="App">
       <header className="App-header">
         <h4>{status}</h4>
         <button onClick={() => setStatus(1)}>Button</button>
+        <h4>{input}</h4>
+        <input type="text" value={input} onChange={onChangeHandler} />
         <Counter />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
